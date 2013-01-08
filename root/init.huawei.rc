@@ -3,16 +3,16 @@ import init.huawei.usb.rc
 on init
     # Set permissions for persist partition
     mkdir /persist 0771 system system
-    export EXTERNAL_STORAGE /mnt/sdcard
     # create mountpoints
-    mkdir /mnt 0775 root system
-    mkdir /HWUserData  0000 system system
-    mkdir /mnt/sdcard 0000 system system
-    mkdir /mnt/emmc 0000 system system
+    mkdir /storage 0775 root system
+    mkdir /storage/sdcard0 0000 system system
+    mkdir /storage/sdcard1 0000 system system
+
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export INTERNAL_STORAGE /storage/sdcard1
 # Backwards Compat - XXX: Going away in G*
-    symlink /mnt/sdcard /sdcard
-    symlink /mnt/emmc /HWUserData
-    
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard1 /emmc
 
 on boot
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
@@ -128,7 +128,7 @@ on emmc-fs
     mount ext4 /dev/block/mmcblk0p6 /cache nosuid nodev barrier=1
     write /sys/module/block2mtd/parameters/block2mtd /dev/block/mmcblk0p7
     wait /dev/block/mmcblk0p14
-    mount vfat /dev/block/mmcblk0p14 /mnt/emmc uid=1000,gid=1015,umask=0002,utf8
+    mount vfat /dev/block/mmcblk0p14 /storage/sdcard1 uid=1000,gid=1015,umask=0002,utf8
     mkdir /.cust_backup
     mount vfat /dev/block/mmcblk0p1 /.cust_backup rw wait
     mkdir /cust 
