@@ -90,7 +90,7 @@ TARGET_KERNEL_SOURCE := kernel/huawei/honor
 TARGET_KERNEL_CONFIG := shendu_honor_defconfig
 
 #TARGET_PREBUILT_KERNEL := device/huawei/u8860/kernel
-#TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8860/kernel
+TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8860/recovery_kernel
 
 BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=huawei
 BOARD_INSTALLER_CMDLINE := $(BOARD_KERNEL_CMDLINE)
@@ -156,6 +156,11 @@ BOARD_VOLD_MAX_PARTITIONS := 14
 # Recovery
 
 BOARD_HAS_NO_SELECT_BUTTON := true
+RECOVERY_CHARGEMODE := true
+BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun1/file"
+TARGET_RECOVERY_INITRC := device/huawei/u8860/recovery/recovery.rc
+TARGET_RECOVERY_FSTAB := device/huawei/u8860/recovery_recovery.fstab
+BOARD_RECOVERY_RMT_STORAGE := true
 
 # Custom releasetools for old partition table.
 TARGET_PROVIDES_RELEASETOOLS := true
