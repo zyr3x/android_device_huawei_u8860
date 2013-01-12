@@ -161,6 +161,7 @@ BOARD_UMS_LUNFILE := "/sys/class/android_usb/android0/f_mass_storage/lun1/file"
 TARGET_RECOVERY_INITRC := device/huawei/u8860/recovery/recovery.rc
 TARGET_RECOVERY_FSTAB := device/huawei/u8860/recovery_recovery.fstab
 BOARD_RECOVERY_RMT_STORAGE := true
+BOARD_CUSTOM_GRAPHICS := ../../../device/huawei/u8860/recovery/graphics_cn.c
 
 # Custom releasetools for old partition table.
 TARGET_PROVIDES_RELEASETOOLS := true
