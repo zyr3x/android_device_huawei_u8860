@@ -429,6 +429,13 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   common.CheckSize(boot_img.data, "boot.img", OPTIONS.info_dict)
   common.ZipWriteStr(output_zip, "boot.img", boot_img.data)
+  
+  # write recovery.img by Ivan
+  recimgfile = open("out/target/product/u8860/recovery.img", 'r')
+  recimg = recimgfile.read()
+  common.ZipWriteStr(output_zip, "recovery.img", recimg)
+  recimgfile.close()
+  
   script.ShowProgress(0.2, 0)
 
   if OPTIONS.backuptool:
@@ -440,6 +447,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   script.ShowProgress(0.2, 10)
   script.WriteRawImage("/boot", "/boot/image", "boot.img") # Modified by Blefish
+  script.WriteRawImage("/recovery", "/recovery/image", "recovery.img") # Modified by Ivan
 
   script.ShowProgress(0.1, 0)
   device_specific.FullOTA_InstallEnd()
@@ -619,6 +627,12 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
   common.ZipWriteStr(output_zip, "boot.img", bootimg)
   bootimgfile.close()
     
+  # write recovery.img
+  recoveryimgfile = open("out/target/product/u8860/recovery.img", 'r')
+  recoveryimg = recoveryimgfile.read()
+  common.ZipWriteStr(output_zip, "recovery.img", recoveryimg)
+  recoveryimgfile.close()
+
   if patch_list or updating_recovery or updating_boot:
     script.CacheFreeSpaceCheck(largest_source_size)
 
@@ -676,6 +690,10 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
   #script.WriteRawImage("/boot", "/boot/image", "boot.img") # Modified by Blefish
   script.AppendExtra('mount("vfat", "EMMC", "/dev/block/mmcblk0p1", "/cust");')
   script.AppendExtra('package_extract_file("boot.img", "/cust/image/boot.img");')
+  script.AppendExtra('unmount("/cust");')
+  #copy recovery.img
+  script.AppendExtra('mount("vfat", "EMMC", "/dev/block/mmcblk0p1", "/cust");')
+  script.AppendExtra('package_extract_file("recovery.img", "/cust/image/recovery.img");')
   script.AppendExtra('unmount("/cust");')
   if updating_recovery:
     # Is it better to generate recovery as a patch from the current
