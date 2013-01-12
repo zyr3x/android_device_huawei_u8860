@@ -143,9 +143,6 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8860/prebuilt/usr/idc/atmel-rmi-touchscreen.idc:system/usr/idc/atmel-rmi-touchscreen.idc \
     device/huawei/u8860/prebuilt/usr/idc/synaptics.idc:system/usr/idc/synaptics.idc
 
-# fix 480*854
-PRODUCT_COPY_FILES += \
-    device/huawei/u8860/prebuilt/20uncapfps:system/etc/init.d/20uncapfps
  # fix front camera
  PRODUCT_COPY_FILES += \
     device/huawei/u8860/prebuilt/bin/mediaserver:system/bin/mediaserver
