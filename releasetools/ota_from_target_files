@@ -447,7 +447,7 @@ def WriteFullOTAPackage(input_zip, output_zip):
 
   script.ShowProgress(0.2, 10)
   script.WriteRawImage("/boot", "/boot/image", "boot.img") # Modified by Blefish
-  script.WriteRawImage("/recovery", "/recovery/image", "recovery.img") # Modified by Ivan
+  script.AppendExtra('package_extract_file("recovery.img", "/boot/image/recovery.img");')
 
   script.ShowProgress(0.1, 0)
   device_specific.FullOTA_InstallEnd()
