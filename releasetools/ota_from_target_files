@@ -690,9 +690,6 @@ def WriteIncrementalOTAPackage(target_zip, source_zip, output_zip):
   #script.WriteRawImage("/boot", "/boot/image", "boot.img") # Modified by Blefish
   script.AppendExtra('mount("vfat", "EMMC", "/dev/block/mmcblk0p1", "/cust");')
   script.AppendExtra('package_extract_file("boot.img", "/cust/image/boot.img");')
-  script.AppendExtra('unmount("/cust");')
-  #copy recovery.img
-  script.AppendExtra('mount("vfat", "EMMC", "/dev/block/mmcblk0p1", "/cust");')
   script.AppendExtra('package_extract_file("recovery.img", "/cust/image/recovery.img");')
   script.AppendExtra('unmount("/cust");')
   if updating_recovery:
