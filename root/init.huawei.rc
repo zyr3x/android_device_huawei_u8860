@@ -7,7 +7,8 @@ on init
     mkdir /storage 0775 root system
     mkdir /storage/sdcard0 0000 system system
     mkdir /storage/sdcard1 0000 system system
-
+	mkdir /internal_sd 0000 system system
+	
     export EXTERNAL_STORAGE /storage/sdcard0
     export INTERNAL_STORAGE /storage/sdcard1
 # Backwards Compat - XXX: Going away in G*
@@ -128,7 +129,7 @@ on emmc-fs
     mount ext4 /dev/block/mmcblk0p6 /cache nosuid nodev barrier=1
     write /sys/module/block2mtd/parameters/block2mtd /dev/block/mmcblk0p7
     wait /dev/block/mmcblk0p14
-    mount vfat /dev/block/mmcblk0p14 /storage/sdcard1 uid=1000,gid=1015,umask=0002,utf8
+    mount vfat /dev/block/mmcblk0p14 /internal_sd uid=1000,gid=1015,umask=0002,utf8
     mkdir /.cust_backup
     mount vfat /dev/block/mmcblk0p1 /.cust_backup rw wait
     mkdir /cust 
