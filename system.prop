@@ -69,8 +69,8 @@ debug.camcorder.disablemeta=0
 #
 # system prop for internal and external SD and SD card emulation of emmc partition
 #
-ro.additionalmounts=/mnt/emmc
-ro.vold.switchablepair=/mnt/sdcard,/mnt/emmc
+ro.additionalmounts=/storage/sdcard0
+ro.vold.switchablepair=/storage/sdcard1,/storage/sdcard0
 ro.emmc.sdcard.partition=14
 ro.vold.umsdirtyratio=20
 
