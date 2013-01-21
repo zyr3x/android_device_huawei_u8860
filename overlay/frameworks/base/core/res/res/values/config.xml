@@ -29,6 +29,8 @@
         <item>rndis\\d</item>
     </string-array>
     
+    <bool name="config_animateScreenLights">false</bool>
+
     <!-- Default LED on time for notification LED in milliseconds. -->
     <integer name="config_defaultNotificationLedOn">1500</integer>
 
