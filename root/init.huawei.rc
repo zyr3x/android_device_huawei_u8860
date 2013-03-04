@@ -14,7 +14,8 @@ on init
 # Backwards Compat - XXX: Going away in G*
     symlink /storage/sdcard0 /sdcard
     symlink /storage/sdcard1 /emmc
-
+    symlink /storage/sdcard0 /mnt/sdcard
+    symlink /storage/sdcard1 /mnt/emmc
 on boot
     mkdir /data/misc/bluetooth 0770 bluetooth bluetooth
     chown bluetooth bluetooth /sys/module/bluetooth_power/parameters/power
