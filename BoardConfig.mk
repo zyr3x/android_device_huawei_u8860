@@ -86,10 +86,10 @@ ENABLE_WEBGL := true
 WEBCORE_INPAGE_VIDEO := true
 
 # Kernel
-TARGET_KERNEL_SOURCE := kernel/huawei/honor
-TARGET_KERNEL_CONFIG := shendu_honor_defconfig
+#TARGET_KERNEL_SOURCE := kernel/huawei/honor
+#TARGET_KERNEL_CONFIG := shendu_honor_defconfig
 
-#TARGET_PREBUILT_KERNEL := device/huawei/u8860/kernel
+TARGET_PREBUILT_KERNEL := device/huawei/u8860/kernel
 TARGET_PREBUILT_RECOVERY_KERNEL := device/huawei/u8860/recovery_kernel
 
 BOARD_KERNEL_CMDLINE := console=ttyDCC0 androidboot.hardware=huawei
