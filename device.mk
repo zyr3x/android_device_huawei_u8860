@@ -112,6 +112,32 @@ PRODUCT_COPY_FILES += \
     device/huawei/u8860/prebuilt/wifi/nvram.txt:system/wifi/nvram.txt \
     device/huawei/u8860/prebuilt/wifi/dhd.ko:system/wifi/dhd.ko
 
+# Modules
+PRODUCT_COPY_FILES += \
+	device/huawei/u8860/modules/ansi_cprng.ko:system/lib/modules/ansi_cprng.ko \
+	device/huawei/u8860/modules/cls_flow.ko:system/lib/modules/cls_flow.ko \
+	device/huawei/u8860/modules/cpaccess.ko:system/lib/modules/cpaccess.ko \
+	device/huawei/u8860/modules/dal_remotetest.ko:system/lib/modules/dal_remotetest.ko \
+	device/huawei/u8860/modules/dma_test.ko:system/lib/modules/dma_test.ko \
+	device/huawei/u8860/modules/evbug.ko:system/lib/modules/evbug.ko \
+	device/huawei/u8860/modules/gspca_main.ko:system/lib/modules/gspca_main.ko \
+	device/huawei/u8860/modules/librasdioif.ko:system/lib/modules/librasdioif.ko \
+	device/huawei/u8860/modules/mtd_erasepart.ko:system/lib/modules/mtd_erasepart.ko \
+	device/huawei/u8860/modules/mtd_nandecctest.ko:system/lib/modules/mtd_nandecctest.ko \
+	device/huawei/u8860/modules/mtd_oobtest.ko:system/lib/modules/mtd_oobtest.ko \
+	device/huawei/u8860/modules/mtd_pagetest.ko:system/lib/modules/mtd_pagetest.ko \
+	device/huawei/u8860/modules/mtd_readtest.ko:system/lib/modules/mtd_readtest.ko \
+	device/huawei/u8860/modules/mtd_speedtest.ko:system/lib/modules/mtd_speedtest.ko \
+	device/huawei/u8860/modules/mtd_stresstest.ko:system/lib/modules/mtd_stresstest.ko \
+	device/huawei/u8860/modules/mtd_subpagetest.ko:system/lib/modules/mtd_subpagetest.ko \
+	device/huawei/u8860/modules/mtd_torturetest.ko:system/lib/modules/mtd_torturetest.ko \
+	device/huawei/u8860/modules/qce.ko:system/lib/modules/qce.ko \
+	device/huawei/u8860/modules/qcedev.ko:system/lib/modules/qcedev.ko \
+	device/huawei/u8860/modules/qcrypto.ko:system/lib/modules/qcrypto.ko \
+	device/huawei/u8860/modules/reset_modem.ko:system/lib/modules/reset_modem.ko \
+	device/huawei/u8860/modules/sch_dsmark.ko:system/lib/modules/sch_dsmark.ko \
+	device/huawei/u8860/modules/scsi_wait_scan.ko:system/lib/modules/scsi_wait_scan.ko
+	
 # firmware
 PRODUCT_COPY_FILES += \
     device/huawei/u8860/prebuilt/etc/firmware/a225p5_pm4.fw:system/etc/firmware/a225p5_pm4.fw \
