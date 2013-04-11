@@ -1,2 +1,0 @@
-dev_mount sdcard /storage/sdcard0 auto /devices/platform/msm_sdcc.4/mmc_host
-dev_mount emmc /storage/sdcard1 14 /devices/platform/msm_sdcc.2/mmc_host
