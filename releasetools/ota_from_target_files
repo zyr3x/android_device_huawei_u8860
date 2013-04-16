@@ -305,6 +305,27 @@ def CopySystemFiles(input_zip, output_zip=None,
         else:
           Item.Get(fn, dir=False)
 
+    if info.filename.startswith("DATA/"):
+      basefilename = info.filename[5:]
+      if IsSymlink(info):
+        symlinks.append((input_zip.read(info.filename),
+                         "/data/" + basefilename))
+      else:
+        info2 = copy.copy(info)
+        fn = info2.filename = "data/" + basefilename
+        if substitute and fn in substitute and substitute[fn] is None:
+          continue
+        if output_zip is not None:
+          if substitute and fn in substitute:
+            data = substitute[fn]
+          else:
+            data = input_zip.read(info.filename)
+          output_zip.writestr(info2, data)
+        if fn.endswith("/"):
+          Item.Get(fn[:-1], dir=True)
+        else:
+          Item.Get(fn, dir=False)
+
   symlinks.sort()
   return symlinks
 
@@ -411,6 +432,10 @@ def WriteFullOTAPackage(input_zip, output_zip):
     WritePolicyConfig(OPTIONS.info_dict["selinux_fc"], output_zip)
 
   script.FormatPartition("/system")
+  #add data for apps
+  script.Mount("/data")
+  script.UnpackPackageDir("data", "/data")
+
   script.Mount("/system")
   #script.UnpackPackageDir("recovery", "/system")
   script.UnpackPackageDir("system", "/system")
