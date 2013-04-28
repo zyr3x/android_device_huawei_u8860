@@ -1,0 +1,4 @@
+#!/system/bin/sh
+mount -o remount,rw /cache
+mkdir -p /cache/dalvik-cache
+chmod 777 /cache/dalvik-cache
