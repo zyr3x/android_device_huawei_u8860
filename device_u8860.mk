@@ -6,8 +6,8 @@ DEVICE_PACKAGE_OVERLAYS += device/huawei/u8860/overlay
 
 LOCAL_PATH := device/huawei/u8860
 
-PRODUCT_COPY_FILES += \
-	device/huawei/u8860/prebuilt/etc/init.d/02fixcache:system/etc/init.d/02fixcache
+#PRODUCT_COPY_FILES += \
+#	device/huawei/u8860/prebuilt/etc/init.d/02fixcache:system/etc/init.d/02fixcache
 
 $(call inherit-product, build/target/product/full.mk)
 
